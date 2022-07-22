@@ -1,7 +1,7 @@
 import CProcInfo
 import Darwin
 
-func getLocalTcpPorts(of pid: pid_t) -> Set<Int32> {
+public func getLocalTcpPorts(of pid: pid_t) -> Set<Int32> {
     var count: Int32 = 0
     var ports: UnsafeMutablePointer<Int32>? = nil
     
