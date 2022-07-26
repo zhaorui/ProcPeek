@@ -13,8 +13,15 @@
 #include <string.h>
 #include <libproc.h>
 #include <sys/errno.h>
+#include <sys/sysctl.h>
+#include <assert.h>
+
+struct proc_profile {
+    int pid;
+    char* name; // malloc
+};
 
 int listLocalTcpPorts(pid_t pid, int* ports[], int* count);
-
+int listProcs(struct proc_profile* profiles[], int* count);
 
 #endif /* procinfo_h */

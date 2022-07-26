@@ -3,6 +3,7 @@ import XCTest
 
 final class ProcPeekTests: XCTestCase {
     
+    // Get TCP Ports
     func testWithRootProcess() {
         let result = getLocalTcpPorts(of: 0)
         XCTAssertTrue(result.isEmpty)
@@ -23,5 +24,13 @@ final class ProcPeekTests: XCTestCase {
             let result = getLocalTcpPorts(of: 56605)
             print(result)
         }
+    }
+    
+    // List Processes
+    func testListProcesses() {
+        let result = getAllProcess().allSatisfy { profile in
+            profile.pid > 0 && !profile.name.isEmpty
+        }
+        XCTAssertTrue(result)
     }
 }
