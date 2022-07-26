@@ -33,4 +33,15 @@ final class ProcPeekTests: XCTestCase {
         }
         XCTAssertTrue(result)
     }
+    
+    func testGetProcess() {
+        measure {
+            if let p = getProcess(from: 13659) {
+                print(p.pid, p.name)
+            } else {
+                print("Not Found!")
+            }
+        }
+    }
+    
 }

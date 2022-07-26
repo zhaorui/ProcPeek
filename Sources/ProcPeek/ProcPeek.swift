@@ -36,3 +36,9 @@ public func getAllProcess() -> [ProcessProfile] {
         return ProcessProfile(pid: $0.pid, name: String(cString: $0.name))
     }
 }
+
+public func getProcess(from tcpPort: Int32) -> ProcessProfile? {
+    getAllProcess().first { profile in
+        getLocalTcpPorts(of: profile.pid).contains(tcpPort)
+    }
+}
