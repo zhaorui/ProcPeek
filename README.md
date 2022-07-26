@@ -18,3 +18,10 @@ So I use below functions from `libproc` just like the command `lsof` do.
 * proc_pidfdinfo
 * proc_pidinfo
 
+To get a list of BSD processes, use `getAllProcess()`. 
+```swift
+for process in getAllProcess() {
+    print(process.pid, process.name)
+}
+```
+
