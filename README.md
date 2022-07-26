@@ -1,6 +1,9 @@
 # ProcPeek
 
-This library can help you find out what TCP ports is opened by specific process.    
+This library can help you to get a list of running processes, get a list of tcp ports opened by the process,
+and find a process by the tcp port it opened.    
+
+## Get a list of opened TCP ports of the process.    
 Just pass the pid of process to the function `getLocalTcpPorts(of: pid_t)`.   
 
 ```swift
@@ -18,10 +21,18 @@ So I use below functions from `libproc` just like the command `lsof` do.
 * proc_pidfdinfo
 * proc_pidinfo
 
-To get a list of BSD processes, use `getAllProcess()`. 
+## Get a list of BSD processes
+Just use `getAllProcess()`. 
 ```swift
 for process in getAllProcess() {
     print(process.pid, process.name)
 }
 ```
+
+## Find process by the TCP port it opened
+```swift
+let process = getProcess(from: 13659)
+```
+
+
 
