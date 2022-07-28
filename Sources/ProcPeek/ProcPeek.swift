@@ -2,8 +2,8 @@ import CProcInfo
 import Darwin
 
 public struct ProcessProfile {
-    var pid: pid_t
-    var name: String
+    public var pid: pid_t
+    public var name: String
 }
 
 public func getLocalTcpPorts(of pid: pid_t) -> Set<Int32> {
